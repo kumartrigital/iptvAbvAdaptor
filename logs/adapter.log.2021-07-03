@@ -1,0 +1,48 @@
+03 Jul 2021 12:54:09,046 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:54:09,160 114  [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:54:09,266 220  [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 12:54:25,239 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:54:25,252 13   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:54:25,264 25   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 12:54:42,982 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:54:43,003 21   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:54:43,071 89   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 12:55:14,614 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:55:14,633 19   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:55:14,701 87   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 12:55:54,381 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:55:54,407 26   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:55:54,479 98   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 12:56:22,013 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:56:22,030 17   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:56:22,044 31   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 12:56:39,340 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:56:39,356 16   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:56:39,373 33   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 12:57:06,903 0    [main] INFO    - Connecting with Server ...
+03 Jul 2021 12:57:06,922 19   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 12:57:06,934 31   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+03 Jul 2021 13:13:46,982 1000079 [Timer-0] INFO  com.obs.consumer.HSCASConsumer  - 0635BBEB : terminal id :b90619eb
+03 Jul 2021 13:13:47,036 1000133 [Timer-0] INFO  com.obs.consumer.HSCASConsumer  - send Date methosjava.io.DataOutputStream@72f88448
+03 Jul 2021 13:13:47,036 1000133 [Timer-0] INFO  com.obs.consumer.HSCASConsumer  - fingerprint :00CB0206000AB90619EB000560E166B2
+03 Jul 2021 13:13:47,060 1000157 [Timer-0] INFO  com.obs.consumer.HSCASConsumer  - Failed received heardbeat
+03 Jul 2021 13:30:27,072 2000169 [Timer-1] INFO  com.obs.consumer.HSCASConsumer  - 0635BBEB : terminal id :b90619eb
+03 Jul 2021 13:30:27,073 2000170 [Timer-1] INFO  com.obs.consumer.HSCASConsumer  - send Date methosjava.io.DataOutputStream@1904db3e
+03 Jul 2021 13:30:27,073 2000170 [Timer-1] INFO  com.obs.consumer.HSCASConsumer  - fingerprint :00CC0206000AB90619EB000560E16A9B
+03 Jul 2021 13:30:27,074 2000171 [Timer-1] INFO  com.obs.consumer.HSCASConsumer  - Failed received heardbeat
+03 Jul 2021 13:47:07,078 3000175 [Timer-2] INFO  com.obs.consumer.HSCASConsumer  - 0635BBEB : terminal id :b90619eb
+03 Jul 2021 13:47:07,080 3000177 [Timer-2] INFO  com.obs.consumer.HSCASConsumer  - send Date methosjava.io.DataOutputStream@135516fe
+03 Jul 2021 13:47:07,081 3000178 [Timer-2] INFO  com.obs.consumer.HSCASConsumer  - ABVAdapter::sendData():IOException: Broken pipe (Write failed)
+03 Jul 2021 13:47:07,081 3000178 [Timer-2] INFO  com.obs.consumer.HSCASConsumer  - fingerprint :00CD0206000AB90619EB000560E16E83
+03 Jul 2021 13:47:07,082 3000179 [Timer-2] INFO  com.obs.consumer.HSCASConsumer  - Unable to send data for Connection request
+03 Jul 2021 13:47:07,083 3000180 [Timer-2] ERROR com.obs.consumer.HSCASConsumer  - The Socket server connection is DisConnected, ReConnect to the Server
+03 Jul 2021 13:47:07,083 3000180 [Timer-2] INFO    - Connecting with Server ...
+03 Jul 2021 13:47:07,084 3000181 [Timer-2] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+03 Jul 2021 14:03:47,087 4000184 [Timer-3] INFO  com.obs.consumer.HSCASConsumer  - 0635BBEB : terminal id :b90619eb
+03 Jul 2021 14:03:47,089 4000186 [Timer-3] INFO  com.obs.consumer.HSCASConsumer  - send Date methosjava.io.DataOutputStream@df9d82f
+03 Jul 2021 14:03:47,090 4000187 [Timer-3] INFO  com.obs.consumer.HSCASConsumer  - fingerprint :00CE0206000AB90619EB000560E1726B
+03 Jul 2021 14:03:47,092 4000189 [Timer-3] INFO  com.obs.consumer.HSCASConsumer  - Failed received heardbeat
+03 Jul 2021 14:20:27,097 5000194 [Timer-4] INFO  com.obs.consumer.HSCASConsumer  - 0635BBEB : terminal id :b90619eb
+03 Jul 2021 14:20:27,099 5000196 [Timer-4] INFO  com.obs.consumer.HSCASConsumer  - send Date methosjava.io.DataOutputStream@6b2aa295
+03 Jul 2021 14:20:27,100 5000197 [Timer-4] INFO  com.obs.consumer.HSCASConsumer  - fingerprint :00CF0206000AB90619EB000560E17653
+03 Jul 2021 14:20:27,100 5000197 [Timer-4] INFO  com.obs.consumer.HSCASConsumer  - Failed received heardbeat

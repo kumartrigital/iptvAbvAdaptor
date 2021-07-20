@@ -1,0 +1,15 @@
+02 Jul 2021 12:41:53,929 0    [main] ERROR   - IOException : java.net.ConnectException: Connection refused (Connection refused). verify the BSS system server running or not
+02 Jul 2021 15:26:37,345 0    [main] ERROR   - Authentication Failed : HTTP error code is: 401
+02 Jul 2021 15:26:37,364 19   [main] ERROR   - AuthenticationException: AuthenticationException :  BSS system server username (or) password you entered is incorrect . check in the ABVIntegrator.ini file
+02 Jul 2021 15:26:37,384 39   [main] INFO    - Connecting with Server ...
+02 Jul 2021 15:26:37,392 47   [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+02 Jul 2021 15:26:37,524 179  [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+02 Jul 2021 15:26:37,533 188  [Thread-2] INFO    - https://192.248.163.200:8877/ngbplatform/api/v1/entitlements/1
+02 Jul 2021 15:26:37,534 189  [Thread-2] INFO    - 0
+02 Jul 2021 15:28:56,202 0    [main] ERROR   - Authentication Failed : HTTP error code is: 401
+02 Jul 2021 15:28:56,206 4    [main] ERROR   - AuthenticationException: AuthenticationException :  BSS system server username (or) password you entered is incorrect . check in the ABVIntegrator.ini file
+02 Jul 2021 15:28:56,210 8    [main] INFO    - Connecting with Server ...
+02 Jul 2021 15:28:56,211 9    [main] INFO    - Server is Connected with in the Host: 'localhost' and PortNumber: '5939'. 
+02 Jul 2021 15:28:56,256 54   [main] INFO  com.obs.consumer.HSCASConsumer  - [SYSTEM]Adater successfully connected to provisioning server.
+02 Jul 2021 15:28:56,258 56   [Thread-2] INFO    - https://192.248.163.200:8877/ngbplatform/api/v1/entitlements/1
+02 Jul 2021 15:28:56,258 56   [Thread-2] INFO    - 0
