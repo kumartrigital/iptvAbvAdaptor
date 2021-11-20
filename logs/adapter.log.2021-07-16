@@ -1,0 +1,14 @@
+16 Jul 2021 14:32:47,284 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an invalid hex digit in 'C['
+16 Jul 2021 14:37:55,961 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:38:39,451 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:39:41,727 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:39:59,905 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:40:01,710 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:40:03,061 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:50:32,793 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:51:10,993 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 14:57:52,931 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an invalid hex digit in '0x'
+16 Jul 2021 14:59:05,817 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 15:11:20,838 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:null
+16 Jul 2021 19:13:47,703 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits
+16 Jul 2021 19:14:39,962 0    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:Hex-encoded binary string contains an uneven no. of digits

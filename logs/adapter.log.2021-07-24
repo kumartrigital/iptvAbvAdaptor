@@ -1,0 +1,6 @@
+24 Jul 2021 12:29:43,223 0    [main] INFO  com.obs.utils.ProcessingMessage  - execption userOSD Command :Hex-encoded binary string contains an invalid hex digit in '[B'
+24 Jul 2021 12:30:53,834 0    [main] INFO  com.obs.utils.ProcessingMessage  - execption userOSD Command :Hex-encoded binary string contains an invalid hex digit in '[B'
+24 Jul 2021 12:31:19,345 0    [main] INFO  com.obs.utils.ProcessingMessage  - execption userOSD Command :Hex-encoded binary string contains an invalid hex digit in '[B'
+24 Jul 2021 12:33:00,572 0    [main] INFO  com.obs.utils.ProcessingMessage  - execption userOSD Command :Hex-encoded binary string contains an invalid hex digit in '[B'
+24 Jul 2021 12:33:13,480 0    [main] INFO  com.obs.utils.ProcessingMessage  - execption userOSD Command :Hex-encoded binary string contains an invalid hex digit in '[B'
+24 Jul 2021 12:33:50,979 0    [main] INFO  com.obs.utils.ProcessingMessage  - execption userOSD Command :Hex-encoded binary string contains an invalid hex digit in '[B'

@@ -167,7 +167,6 @@ public class HSCASConsumer implements Runnable {
 			logger.info(messageQueue.size());
 			while (!messageQueue.isEmpty()) {
 				for (ProcessRequestData processRequestData : messageQueue) {
-					//logger.info("process request data " + processRequestData);
 					messageQueue.poll();
 					processCommand.processRequest(processRequestData);
 				}
@@ -198,7 +197,7 @@ public class HSCASConsumer implements Runnable {
 				object.put("network_subscriber_id", InnerUserId);
 			} else {
 				object.put("receivedStatus", task_id);
-				object.put("receiveMessage", "failure : " + output + " : " + HSCASErrorCodes.getErrorDesc(output));
+				object.put("receiveMessage", "failure : " + output + " : " + HSCASErrorCodes.getErrorDesc(Integer.parseInt(output)));
 			}
 			System.out.println(output);
 			System.out.println(object.toString());
@@ -215,11 +214,6 @@ public class HSCASConsumer implements Runnable {
 			} else if (response.getStatusLine().getStatusCode() == 404) {
 				logger.error("Resource Not Found Exception : HTTP error code is: "
 						+ response.getStatusLine().getStatusCode());
-				// httpClient.getConnectionManager().shutdown();
-				/*
-				 * throw new RuntimeErrorException(null,
-				 * "Resource NotFound Exception :  BSS server system 'BSSQuery' url error.");
-				 */
 				logger.error("Resource NotFound Exception :  BSS server system 'BSSQuery' url error.");
 				
 			} else if (response.getStatusLine().getStatusCode() != 200) {
@@ -245,10 +239,8 @@ public class HSCASConsumer implements Runnable {
 			}
 		} catch (AuthenticationException e) {
 			logger.error("AuthenticationException: " + e.getLocalizedMessage());
-			//System.exit(0);
 		} catch (RuntimeErrorException e) {
 			logger.error("ResourceNotFoundException: " + e.getLocalizedMessage());
-			//System.exit(0);
 		}
 
 	}

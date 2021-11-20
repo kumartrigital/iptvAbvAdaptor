@@ -202,18 +202,10 @@ public class FileUtils {
 	}
 
 	public static String getHexadecimalValue(int value, int noOfBytes) {
-		// System.out.println("Within getHexadecimalValue string :" + value);
-		String hexaString = Integer.toHexString((Integer) value).toUpperCase();
-		// System.out.println("Within getHexadecimalValue string :" +
-		// hexaString);
+		String hexaString = Integer.toHexString((Integer) value).toUpperCase();		
 		if (2 * noOfBytes != hexaString.length()) {
-			// System.out.println("Within getHexadecimalValue string :" +
-			// hexaString);
 			hexaString = chHexaStringValue(hexaString, 2 * noOfBytes);
-			// System.out.println("Within getHexadecimalValue string :" +
-			// hexaString);
 		}
-
 		return hexaString;
 	}
 
@@ -791,7 +783,7 @@ public class FileUtils {
 		return FileUtils.bytesToHex(command);
 	}
 
-	public static String getHexforProduct(int i) {
+	public static String getHexforProductAdd(int i) {
 		final ByteArrayOutputStream streamOut = new ByteArrayOutputStream();
 
 		streamOut.write(i >>> 8 & 0xFF);
@@ -802,6 +794,15 @@ public class FileUtils {
 		streamOut.write(0);
 		streamOut.write(0);
 		streamOut.write(0);
+		streamOut.write(i >>> 8 & 0xFF);
+		streamOut.write(i & 0xFF);
+
+		return productByte(streamOut.toByteArray());
+	}
+
+	public static String getHexforProductcancel(int i) {
+		final ByteArrayOutputStream streamOut = new ByteArrayOutputStream();
+
 		streamOut.write(i >>> 8 & 0xFF);
 		streamOut.write(i & 0xFF);
 
@@ -842,13 +843,10 @@ public class FileUtils {
 		 * Date newDate = DateUtils.addMonths(new Date(), 1);
 		 * System.out.println("FileUtils.main()" + newDate);
 		 */
-		System.out.println("FileUtils.main()" + Arrays.toString(FileUtils.hexStringToByteArray("01E100021011")));
 	
-	byte [] result  = FileUtils.hexStringToByteArray("01E100021011");
+		System.out.println("FileUtils.main()"+FileUtils.getDecimal("FF"));
+		System.out.println("FileUtils.main()"+FileUtils.getHexadecimalValue(3, 4));
 
 	}
-	
-	
-	
 
 }

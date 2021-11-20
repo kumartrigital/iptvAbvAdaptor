@@ -1,0 +1,37 @@
+20 Jul 2021 22:38:31,464 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : FF0000076D
+20 Jul 2021 22:41:53,262 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff0000076d
+20 Jul 2021 22:41:53,264 2    [main] INFO  com.obs.utils.ProcessingMessage  - Error.:null
+20 Jul 2021 22:42:25,264 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff0000076d
+20 Jul 2021 22:45:17,490 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff0000076d
+20 Jul 2021 22:45:45,656 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff0000076d
+20 Jul 2021 22:58:10,753 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 22:59:00,176 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 22:59:55,859 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:01:40,625 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:18:21,110 1    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:26:40,308 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:27:58,217 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:32:03,973 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:39:03,804 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:39:52,312 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:41:23,986 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:42:52,171 1    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:43:09,822 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:44:50,818 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:44:50,831 13   [main] INFO  com.obs.utils.ProcessingMessage  - HexString : 0110002A403F0101ff00000768140729172CF11407291408290203D40003D400000003D403CD0003CD00000003CD
+20 Jul 2021 23:44:50,832 14   [main] INFO  com.obs.utils.ProcessingMessage  - byte array licience update[1, 16, 0, 32, 64, 63, 1, 1, -1, 0, 0, 7, 104, 20, 7, 41, 23, 44, -15, 20, 7, 41, 20, 8, 41, 2, 3, -44, 0, 3, -44, 0, 0, 0, 3, -44, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51]
+20 Jul 2021 23:55:50,876 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:55:50,889 13   [main] INFO  com.obs.utils.ProcessingMessage  - HexString : 0110002A403F0101ff000007681407291737F11407291408290203D40003D400000003D403CD0003CD00000003CD
+20 Jul 2021 23:55:50,890 14   [main] INFO  com.obs.utils.ProcessingMessage  - byte array licience update[1, 16, 0, 32, 64, 63, 1, 1, -1, 0, 0, 7, 104, 20, 7, 41, 23, 55, -15, 20, 7, 41, 20, 8, 41, 2, 3, -44, 0, 3, -44, 0, 0, 0, 3, -44, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51]
+20 Jul 2021 23:56:33,387 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:56:33,399 12   [main] INFO  com.obs.utils.ProcessingMessage  - HexString : 0110002A403F0101ff000007681407291738F11407291408290203D40003D400000003D403CD0003CD00000003CD
+20 Jul 2021 23:56:33,400 13   [main] INFO  com.obs.utils.ProcessingMessage  - byte array licience update[1, 16, 0, 32, 64, 63, 1, 1, -1, 0, 0, 7, 104, 20, 7, 41, 23, 56, -15, 20, 7, 41, 20, 8, 41, 2, 3, -44, 0, 3, -44, 0, 0, 0, 3, -44, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51]
+20 Jul 2021 23:58:23,111 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:58:23,121 10   [main] INFO  com.obs.utils.ProcessingMessage  - HexString : 0110002A403F0101ff00000768140729173AF11407291408290203D40003D400000003D403CD0003CD00000003CD
+20 Jul 2021 23:58:23,122 11   [main] INFO  com.obs.utils.ProcessingMessage  - byte array licience update[1, 16, 0, 32, 64, 63, 1, 1, -1, 0, 0, 7, 104, 20, 7, 41, 23, 58, -15, 20, 7, 41, 20, 8, 41, 2, 3, -44, 0, 3, -44, 0, 0, 0, 3, -44, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51]
+20 Jul 2021 23:58:41,166 0    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:58:41,180 14   [main] INFO  com.obs.utils.ProcessingMessage  - HexString : 0110002A403F0101ff00000768140729173AF11407291408290203D40003D400000003D403CD0003CD00000003CD
+20 Jul 2021 23:58:41,181 15   [main] INFO  com.obs.utils.ProcessingMessage  - byte array licience update[1, 16, 0, 42, 64, 63, 1, 1, -1, 0, 0, 7, 104, 20, 7, 41, 23, 58, -15, 20, 7, 41, 20, 8, 41, 2, 3, -44, 0, 3, -44, 0, 0, 0, 3, -44, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51]
+20 Jul 2021 23:59:13,676 1    [main] INFO  com.obs.utils.ProcessingMessage  - userInnerId : ff00000768
+20 Jul 2021 23:59:13,686 11   [main] INFO  com.obs.utils.ProcessingMessage  - HexString : 01100084403F0101ff00000768140729173BF11407291408290B03D40003D400000003D403CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD03CD0003CD00000003CD
+20 Jul 2021 23:59:13,687 12   [main] INFO  com.obs.utils.ProcessingMessage  - byte array licience update[1, 16, 0, -124, 64, 63, 1, 1, -1, 0, 0, 7, 104, 20, 7, 41, 23, 59, -15, 20, 7, 41, 20, 8, 41, 11, 3, -44, 0, 3, -44, 0, 0, 0, 3, -44, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51, 3, -51, 0, 3, -51, 0, 0, 0, 3, -51]

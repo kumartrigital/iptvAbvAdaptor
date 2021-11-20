@@ -1,28 +1,23 @@
 package com.obs.utils;
 
-
 import java.util.Hashtable;
 
-@SuppressWarnings("unchecked")
-public class HSCASErrorCodes
-{
-  public static Hashtable errorCodes = new Hashtable();
-  //[1, 3, 0, 1, 48]
+public class HSCASErrorCodes {
+	public static Hashtable<Integer, String> errorCodes = new Hashtable<Integer, String>();
 
-  static
-  {
-    errorCodes.put(2, " ConnectionStatus Response Packet");
-    errorCodes.put(49, "The length of OSD is wrong. When the value of Data_Len of OSD display data packet exceeds 200 or when the length is 0, returns this error.");
-    errorCodes.put(224, "Command type is not supported.");
-    errorCodes.put(225, "The length of the data packet is wrong.");
-    errorCodes.put(-1, "The length of the data packet is wrong.");
+	static {
+		errorCodes.put(2, " Packet succesfully executed");
+		errorCodes.put(49, "MACAddress succesfully register response");
+		errorCodes.put(224, "Success Response Packet");
+		errorCodes.put(225, "Error Response Packet");
+		errorCodes.put(-1, "Unkown Response Packet");
+		errorCodes.put(99, "command failed to get response");
 
- }
-  
-  public static String getErrorDesc(String  errorCode)
-  {
-    return (String)errorCodes.get(errorCode);
-  }
- 
+
+	}
+
+	public static String getErrorDesc(int errorCode) {
+		return errorCodes.get(errorCode);
+	}
 
 }

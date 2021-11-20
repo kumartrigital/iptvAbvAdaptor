@@ -113,12 +113,6 @@ public class ProcessCommandImpl {
 		}
 	}
 
-	public static void getconnectiontemp() throws UnknownHostException, IOException {
-		Socket requestSocket = new Socket("192.168.5.28", 2202);
-		ProcessCommandImpl p = new ProcessCommandImpl(requestSocket, null);
-
-	}
-
 	public boolean sendData(DataOutputStream os, byte[] byteData) {
 
 		boolean status = false;
@@ -248,37 +242,25 @@ public class ProcessCommandImpl {
 			logger.info(" Response: " + response);
 			this.hexResponse = response;
 
+			tag = byteArray[1];
+
 			if (tag == 2) {
 				logger.info(" Response: " + response);
-				logger.info("Adaptor successfully connected");
+				logger.info("successfully executed : " + HSCASErrorCodes.getErrorDesc(tag));
 				errCode = "00";
 			} else if (tag == 49) {
 				logger.info(" Response: " + response);
-				logger.info("REGISTER_MAC_ADDRESS_RESPONSE successfully done ");
+				logger.info(" success " + HSCASErrorCodes.getErrorDesc(tag));
 				errCode = "00";
 			} else if (tag == 224) {
 				logger.info(" Response: " + response);
+				logger.info(" success " + HSCASErrorCodes.getErrorDesc(tag));
 				errCode = "00";
-
 			} else {
-				errCode = Byte.toString(byteArray[5]);
-
-				if (errCode.length() == 1) {
-					// errCode = "0" + tag;
-					System.out.println("ProcessCommandImpl.processReceivedData()" + "0" + tag);
-					errCode = "00";
-				}
-				if (errCode.equals("00")) {
-					logger.info("Successfull command execution");
-				} else {
-					logger.info("Error command failed: " + HSCASErrorCodes.getErrorDesc(errCode));
-					errCode = "00";
-				}
-				return errCode;
+				logger.info("Error command failed: tag : " + tag + ":" + HSCASErrorCodes.getErrorDesc(-1));
+				errCode = "Err";
 			}
-		} catch (
-
-		Exception exp) {
+		} catch (Exception exp) {
 			logger.info("Exception at ABVAdapter:processReceivedData : " + exp.getMessage());
 		}
 		return errCode;
@@ -293,8 +275,8 @@ public class ProcessCommandImpl {
 			OBSProvOrder localProvObj = FileUtils.jsonToProvObj(processRequestData.getJsonObject());
 			logger.info("Request Id : " + processRequestData.getId() + " Request Type : "
 					+ processRequestData.getRequestType() + " Task Id : " + processRequestData.gettaskId());
-			ProcessCommandImpl p = new ProcessCommandImpl();
 
+			ProcessCommandImpl p = new ProcessCommandImpl();
 			p.closeIOFile();
 			p.openConnectionTemp();
 
@@ -347,6 +329,9 @@ public class ProcessCommandImpl {
 				// TASK2:
 				if (task_no == 2) {
 
+					p.closeIOFile();
+					p.openConnectionTemp();
+
 					System.out.println("user ID :" + localProvObj.getResponse());
 
 					byte[] bindingByteArrayData = this.processingMessage.userAreaModifying(localProvObj);
@@ -374,7 +359,7 @@ public class ProcessCommandImpl {
 						System.out.println("ProcessCommandImpl.processRequest() ret_code :" + ret_code);
 						if (!ret_code.equals("00")) {
 							logger.error("Error in processing command with Error :"
-									+ HSCASErrorCodes.getErrorDesc(ret_code));
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
 							// call api for resposne processing
 							processResult(processRequestData.getId(), ret_code, task_no, null);
 							return;
@@ -388,6 +373,10 @@ public class ProcessCommandImpl {
 					}
 				}
 				if (task_no == 3) {
+
+					p.closeIOFile();
+					p.openConnectionTemp();
+
 					byte[] bindingByteArrayData = this.processingMessage.userBinding(localProvObj);
 					logger.info("Going to prepare bind data");
 					if (bindingByteArrayData != null) {
@@ -413,7 +402,7 @@ public class ProcessCommandImpl {
 						System.out.println("ProcessCommandImpl.processRequest()" + ret_code);
 						if (!ret_code.equals("00")) {
 							logger.error("Error in processing command with Error :"
-									+ HSCASErrorCodes.getErrorDesc(ret_code));
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
 							// call api for resposne processing
 							processResult(processRequestData.getId(), ret_code, task_no, null);
 							return;
@@ -428,6 +417,55 @@ public class ProcessCommandImpl {
 					}
 				}
 				if (task_no == 4) {
+
+					p.closeIOFile();
+					p.openConnectionTemp();
+
+					byte[] bindingByteArrayData = ProcessingMessage.licenseUpdating(localProvObj);
+
+					if (bindingByteArrayData != null) {
+						dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+						dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+
+						try {
+							status = sendData(dataOutputStream, bindingByteArrayData);
+
+						} catch (Exception e) {
+							processRequestData.setTaskId(task_no);
+							closeIOFile();
+							processRequest(processRequestData);
+						}
+
+						if (!status) {
+							logger.error("Unable to send data for Connection request");
+							ret_code = "99";
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						}
+						ret_code = receiveData();
+						System.out.println("ProcessCommandImpl.processRequest()" + ret_code);
+						if (!ret_code.equals("00")) {
+							logger.error("Error in processing command with Error :"
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
+
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						} else {
+
+							logger.info("updating details  done in obb query" + ret_code);
+							processResult(processRequestData.getId(), ret_code, (long) 0, null);
+						}
+						logger.info("REQ_ACTIVATION executed successfully");
+
+					} else {
+						throw new Exception("Command preperation failed");
+					}
+				}
+
+			} else if (processRequestData.getRequestType().equalsIgnoreCase(HSCASConstants.REQ_ADD_ENTITLEMENT)) {
+
+				if (task_no == 1) {
+
 					byte[] bindingByteArrayData = this.processingMessage.licenseUpdating(localProvObj);
 					logger.info("Going to prepare bind data");
 					if (bindingByteArrayData != null) {
@@ -453,7 +491,7 @@ public class ProcessCommandImpl {
 						System.out.println("ProcessCommandImpl.processRequest()" + ret_code);
 						if (!ret_code.equals("00")) {
 							logger.error("Error in processing command with Error :"
-									+ HSCASErrorCodes.getErrorDesc(ret_code));
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
 							// call api for resposne processing
 							processResult(processRequestData.getId(), ret_code, task_no, null);
 							return;
@@ -463,12 +501,187 @@ public class ProcessCommandImpl {
 
 							processResult(processRequestData.getId(), ret_code, (long) 0, null);
 						}
-						logger.info("Activation  done in CAS");
+						logger.info("REQ_ADD_ENTITLEMENT executed successfully");
 					} else {
 						throw new Exception("Command preperation failed");
 					}
 				}
+			} else if (processRequestData.getRequestType().equalsIgnoreCase(HSCASConstants.REQ_CANCEL_ENTITLEMENT)) {
 
+				if (task_no == 1) {
+
+					byte[] bindingByteArrayData = this.processingMessage.licenseCanceling(localProvObj);
+					logger.info("Going to prepare bind data");
+					if (bindingByteArrayData != null) {
+						dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+						dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+
+						try {
+							status = sendData(dataOutputStream, bindingByteArrayData);
+
+						} catch (Exception e) {
+							processRequestData.setTaskId(task_no);// updating
+							closeIOFile();
+							processRequest(processRequestData);
+						}
+
+						if (!status) {
+							logger.error("Unable to send data for Connection request");
+							ret_code = "99";
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						}
+						ret_code = receiveData();
+						System.out.println("ProcessCommandImpl.processRequest()" + ret_code);
+						if (!ret_code.equals("00")) {
+							logger.error("Error in processing command with Error :"
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
+							// call api for resposne processing
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						} else {
+
+							logger.info("updating details  done in obb query" + ret_code);
+
+							processResult(processRequestData.getId(), ret_code, (long) 0, null);
+						}
+						logger.info("REQ_CANCEL_ENTITLEMENT executed successfully");
+					} else {
+						throw new Exception("Command preperation failed");
+					}
+				}
+			} else if (processRequestData.getRequestType().equalsIgnoreCase(HSCASConstants.REQ_OSD)) {
+
+				if (task_no == 1) {
+
+					byte[] bindingByteArrayData = this.processingMessage.userOSD(localProvObj);
+					logger.info("Going to prepare bind data");
+					if (bindingByteArrayData != null) {
+						dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+						dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+
+						try {
+							status = sendData(dataOutputStream, bindingByteArrayData);
+
+						} catch (Exception e) {
+							processRequestData.setTaskId(task_no);// updating
+							closeIOFile();
+							processRequest(processRequestData);
+						}
+
+						if (!status) {
+							logger.error("Unable to send data for Connection request");
+							ret_code = "99";
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						}
+						ret_code = receiveData();
+						System.out.println("ProcessCommandImpl.processRequest()" + ret_code);
+						if (!ret_code.equals("00")) {
+							logger.error("Error in processing command with Error :"
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
+
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						} else {
+
+							logger.info("updating details  done in obb query" + ret_code);
+
+							processResult(processRequestData.getId(), ret_code, (long) 0, null);
+						}
+						logger.info("REQ_OSD executed successfully");
+					} else {
+						throw new Exception("Command preperation failed");
+					}
+				}
+			} else if (processRequestData.getRequestType().equalsIgnoreCase(HSCASConstants.REQ_SUSPEND)) {
+
+				if (task_no == 1) {
+
+					byte[] bindingByteArrayData = ProcessingMessage.userUnBind(localProvObj);
+					logger.info("Going to prepare bind data");
+					if (bindingByteArrayData != null) {
+						dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+						dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+
+						try {
+							status = sendData(dataOutputStream, bindingByteArrayData);
+
+						} catch (Exception e) {
+							processRequestData.setTaskId(task_no);// updating
+							closeIOFile();
+							processRequest(processRequestData);
+						}
+
+						if (!status) {
+							logger.error("Unable to send data for Connection request");
+							ret_code = "99";
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						}
+						ret_code = receiveData();
+						System.out.println("ProcessCommandImpl.processRequest()" + ret_code);
+						if (!ret_code.equals("00")) {
+							logger.error("Error in processing command with Error :"
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
+
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						} else {
+
+							logger.info("updating details  done in obb query" + ret_code);
+
+							processResult(processRequestData.getId(), ret_code, (long) 0, null);
+						}
+						logger.info("REQ_SUSPEND executed successfully");
+					} else {
+						throw new Exception("Command preperation failed");
+					}
+				}
+			} else if (processRequestData.getRequestType().equalsIgnoreCase(HSCASConstants.REQ_TERMINATE)) {
+
+				if (task_no == 1) {
+
+					byte[] bindingByteArrayData = this.processingMessage.userDelete(localProvObj);
+					logger.info("Going to prepare bind data");
+					if (bindingByteArrayData != null) {
+						dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+						dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+
+						try {
+							status = sendData(dataOutputStream, bindingByteArrayData);
+
+						} catch (Exception e) {
+							processRequestData.setTaskId(task_no);// updating
+							closeIOFile();
+							processRequest(processRequestData);
+						}
+
+						if (!status) {
+							logger.error("Unable to send data for Connection request");
+							ret_code = "99";
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						}
+						ret_code = receiveData();
+						System.out.println("ProcessCommandImpl.processRequest()" + ret_code);
+						if (!ret_code.equals("00")) {
+							logger.error("Error in processing command with Error :"
+									+ HSCASErrorCodes.getErrorDesc(Integer.parseInt(ret_code)));
+
+							processResult(processRequestData.getId(), ret_code, task_no, null);
+							return;
+						} else {
+
+							logger.info("updating details  done in obb query" + ret_code);
+
+							processResult(processRequestData.getId(), ret_code, (long) 0, null);
+						}
+						logger.info("REQ_TERMINATE executed successfully");
+					} else {
+						throw new Exception("Command preperation failed");
+					}
+				}
 			} else {
 				ret_code = "ZX";
 				processResult(processRequestData.getId(), ret_code, task_no, null);
@@ -668,6 +881,11 @@ public class ProcessCommandImpl {
 
 		this.dataOutputStream.write(connectionCommand.toByteArray());
 		this.dataOutputStream.flush();
+	}
+
+	public static void main(String args[]) {
+
+		System.out.println("ProcessCommandImpl.main()" + HSCASErrorCodes.getErrorDesc(2));
 	}
 
 }

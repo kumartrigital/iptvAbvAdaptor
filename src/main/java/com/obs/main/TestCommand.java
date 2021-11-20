@@ -6,7 +6,7 @@ public class TestCommand {
 
 
 	public static void main(String args[]) {
-	ProcessingMessage.licenseUpdating(null);
+	ProcessingMessage.areaOSD(null);
 
 	}
 }
